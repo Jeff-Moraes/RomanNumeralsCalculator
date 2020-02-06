@@ -14,20 +14,34 @@ export default class Calculator extends Component {
     firstResult: "",
     secondResult: "",
     result: "",
-    invalidNumber: false
+    invalidNumber: false,
+    symbol: "+"
   };
 
-  handleResult = (event, value) => {
+  handleChange = event => {
     this.setState({
-      [event.target.id]: value
+      [event.target.name]: event.target.value
     });
+    if (event.target.name === "symbol") return;
+
+    const valueToArray = event.target.value.toUpperCase().split("");
+
+    if (valueToArray.length > 0) {
+      this.getInteger(valueToArray, event);
+    } else {
+      this.handleResult(event, event.target.value);
+    }
   };
 
-  getInteger = (romanArray, numbers, event) => {
+  getInteger = (romanArray, event) => {
     let isValid = isRomanValid(romanArray, numbers);
     let result;
     if (isValid) {
+      this.setState({
+        invalidNumber: false
+      });
       result = convertToInteger(romanArray, numbers);
+      console.log(result);
     } else {
       this.setState({
         invalidNumber: true
@@ -36,17 +50,19 @@ export default class Calculator extends Component {
     this.handleResult(event, result);
   };
 
-  handleChange = event => {
+  handleResult = (event, value) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.id]: value
     });
+  };
 
-    const valueToArray = event.target.value.toUpperCase().split("");
-
-    if (valueToArray.length > 0) {
-      this.getInteger(valueToArray, numbers, event);
+  getResult = () => {
+    if (this.state.symbol === "+") {
+      return this.state.firstResult + this.state.secondResult;
+    } else if (this.state.symbol === "-") {
+      return this.state.firstResult - this.state.secondResult;
     } else {
-      this.handleResult(event, event.target.value);
+      return this.state.firstResult * this.state.secondResult;
     }
   };
 
@@ -57,8 +73,9 @@ export default class Calculator extends Component {
         result: "Insert a valid number"
       });
     } else {
+      let calcul = this.getResult();
       this.setState({
-        result: convertToRoman(this.state.firstResult + this.state.secondResult)
+        result: convertToRoman(calcul)
       });
     }
   };
@@ -76,7 +93,7 @@ export default class Calculator extends Component {
               value={this.state.firstValue}
               onChange={this.handleChange}
             />
-            <span>+</span>
+            <span>{this.state.symbol}</span>
             <input
               type="text"
               name="secondValue"
@@ -86,9 +103,30 @@ export default class Calculator extends Component {
             />
           </div>
           <div className="buttons">
-            <button type="button">+</button>
-            <button type="button">-</button>
-            <button type="button">+</button>
+            <button
+              type="button"
+              onClick={this.handleChange}
+              name="symbol"
+              value="+"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={this.handleChange}
+              name="symbol"
+              value="-"
+            >
+              -
+            </button>
+            <button
+              type="button"
+              onClick={this.handleChange}
+              name="symbol"
+              value="X"
+            >
+              +
+            </button>
             <button type="submit">=</button>
           </div>
         </form>

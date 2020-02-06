@@ -1,12 +1,10 @@
 export default function convertToInteger(value, numbersObject) {
   let romanToInteger = [];
 
-  let nextIndex = 0;
+  let nextIndex;
 
   value.forEach((v, index, arr) => {
-    if (index === 0) {
-      romanToInteger.push(numbersObject[v].value);
-    } else if (index !== nextIndex) {
+    if (index !== nextIndex) {
       if (
         arr[index + 1] &&
         numbersObject[arr[index + 1]].value > numbersObject[v].value

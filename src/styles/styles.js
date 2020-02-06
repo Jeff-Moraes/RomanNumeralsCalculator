@@ -36,6 +36,7 @@ export const Container = styled.div`
         border-bottom: 1px solid #e46263;
 
         font-size: 20px;
+        font-weight: 300;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.7);
 
@@ -48,7 +49,7 @@ export const Container = styled.div`
       }
 
       span {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 400;
         color: #e46263;
 
@@ -75,6 +76,9 @@ export const Container = styled.div`
           transition: border 0.3s;
           &:hover {
             border: 0.5px solid rgba(255, 255, 255, 0.5);
+          }
+          &:nth-child(3) {
+            transform: rotate(45deg);
           }
         }
 
