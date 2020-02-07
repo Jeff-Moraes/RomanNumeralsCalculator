@@ -1,27 +1,15 @@
 export default function convertToInteger(value, numbersObject) {
-  let romanToInteger = [];
-
-  let nextIndex;
-
-  value.forEach((v, index, arr) => {
-    if (index !== nextIndex) {
-      if (
-        arr[index + 1] &&
-        numbersObject[arr[index + 1]].value > numbersObject[v].value
-      ) {
-        nextIndex = index + 1;
-        romanToInteger.push(
-          numbersObject[arr[index + 1]].value - numbersObject[v].value
-        );
-      } else {
-        romanToInteger.push(numbersObject[v].value);
-      }
+  let sum = 0;
+  for (let i = value.length - 1; i >= 0; i--) {
+    if (
+      numbersObject[value[i - 1]] &&
+      numbersObject[value[i]].value > numbersObject[value[i - 1]].value
+    ) {
+      sum += numbersObject[value[i]].value - numbersObject[value[i - 1]].value;
+      i--;
+    } else {
+      sum += numbersObject[value[i]].value;
     }
-  });
-
-  // SUM
-
-  const sum = romanToInteger.reduce((a, b) => a + b);
-
+  }
   return sum;
 }
