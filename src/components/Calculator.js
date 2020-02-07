@@ -70,13 +70,23 @@ export default class Calculator extends Component {
     event.preventDefault();
     if (this.state.invalidNumber) {
       this.setState({
-        result: "Insert a valid number"
+        result: "Invalid number"
       });
     } else {
-      let calcul = this.getResult();
-      this.setState({
-        result: convertToRoman(calcul)
-      });
+      let result = this.getResult();
+      if (result < 0) {
+        this.setState({
+          result: `- ${convertToRoman(-result)}`
+        });
+      } else if (result <= 3999) {
+        this.setState({
+          result: convertToRoman(result)
+        });
+      } else {
+        this.setState({
+          result: "Greater than 3999"
+        });
+      }
     }
   };
 
