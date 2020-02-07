@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 30vh;
-  width: 40vw;
+  width: 45vw;
   min-width: 300px;
-
   padding: 30px;
 
   background: #252d38;
@@ -16,17 +14,13 @@ export const Container = styled.div`
   p {
     color: #e46263;
     font-weight: 400;
-  }
-  h1 {
-    font-size: 30px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
   }
 
   form {
     .values {
-      margin: 20px 0;
+      margin: 40px 0 30px;
 
       display: flex;
       input {
@@ -40,6 +34,9 @@ export const Container = styled.div`
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.7);
 
+        &:placeholder-shown {
+          text-transform: none;
+        }
         &:hover {
           border-bottom: 1px solid #fa4243;
         }
@@ -55,6 +52,12 @@ export const Container = styled.div`
 
         margin: 0 15px;
       }
+    }
+    .flex-row {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
     }
     .buttons {
       display: flex;
@@ -91,6 +94,15 @@ export const Container = styled.div`
             background: #fa4243;
           }
         }
+      }
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+
+      &.total {
+        color: rgba(255, 255, 255, 0.2);
       }
     }
   }

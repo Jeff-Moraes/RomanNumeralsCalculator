@@ -90,6 +90,7 @@ export default class Calculator extends Component {
               type="text"
               name="firstValue"
               id="firstResult"
+              placeholder="Insert number"
               value={this.state.firstValue}
               onChange={this.handleChange}
             />
@@ -98,39 +99,46 @@ export default class Calculator extends Component {
               type="text"
               name="secondValue"
               id="secondResult"
+              placeholder="Insert number"
               value={this.state.secondValue}
               onChange={this.handleChange}
             />
           </div>
-          <div className="buttons">
-            <button
-              type="button"
-              onClick={this.handleChange}
-              name="symbol"
-              value="+"
-            >
-              +
-            </button>
-            <button
-              type="button"
-              onClick={this.handleChange}
-              name="symbol"
-              value="-"
-            >
-              -
-            </button>
-            <button
-              type="button"
-              onClick={this.handleChange}
-              name="symbol"
-              value="X"
-            >
-              +
-            </button>
-            <button type="submit">=</button>
+          <div className="flex-row">
+            <div className="buttons">
+              <button
+                type="button"
+                onClick={this.handleChange}
+                name="symbol"
+                value="+"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                onClick={this.handleChange}
+                name="symbol"
+                value="-"
+              >
+                -
+              </button>
+              <button
+                type="button"
+                onClick={this.handleChange}
+                name="symbol"
+                value="X"
+              >
+                +
+              </button>
+              <button type="submit">=</button>
+            </div>
+            {this.state.result ? (
+              <h1>{this.state.result}</h1>
+            ) : (
+              <h1 className="total">Total</h1>
+            )}
           </div>
         </form>
-        <h1>{this.state.result}</h1>
       </Container>
     );
   }
