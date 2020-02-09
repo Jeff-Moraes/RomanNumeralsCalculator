@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
-  min-width: 300px;
-  padding: 30px;
+  width: 300px;
+  padding: 10% 10% 5% 10%;
 
   background: #252d38;
   background: linear-gradient(180deg, #252d38, #3d4958);
@@ -19,26 +18,26 @@ export const Container = styled.div`
   }
 
   form {
-    .values {
-      margin: 40px 0 30px;
-
+    .display {
+      margin: 40px 0;
       display: flex;
       input {
         width: 100%;
-        background: none;
         border: 0;
-        border-bottom: 1px solid #e46263;
-
-        font-size: 20px;
+        border-bottom: 0.5px solid #e46263;
+        font-size: 14px;
         font-weight: 300;
         text-transform: uppercase;
+        background: none;
         color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
 
         &:placeholder-shown {
+          font-size: 12px;
           text-transform: none;
         }
         &:hover {
-          border-bottom: 1px solid #fa4243;
+          border-bottom: 0.5px solid #fa4243;
         }
         &:focus {
           border-bottom: 0;
@@ -49,39 +48,64 @@ export const Container = styled.div`
         font-size: 24px;
         font-weight: 400;
         color: #e46263;
-
-        margin: 0 15px;
+        margin: 0 5px;
       }
     }
-    .flex-row {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 15px;
+    h1 {
+      height: 85px;
+      font-size: 30px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      text-align: right;
+      align-self: flex-end;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
       border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
-    }
-    .buttons {
-      display: flex;
 
+      &.total {
+        color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .keys {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      .keyNumbers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        button:nth-child(even) {
+          margin: 0 auto;
+        }
+      }
+      .keySymbol {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
       button {
-        width: 37px;
-        height: 37px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         padding: 5px;
-        margin-right: 10px;
+        margin-bottom: 15px;
 
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 20px;
         font-weight: 300;
 
         &[type="button"] {
           background: none;
-          border: 0.5px solid rgba(255, 255, 255, 0.2);
+          border: 0.5px solid rgba(255, 255, 255, 0.07);
           transition: border 0.3s;
           &:hover {
-            border: 0.5px solid rgba(255, 255, 255, 0.5);
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
           }
-          &:nth-child(3) {
-            transform: rotate(45deg);
+        }
+
+        &[name="Clear"] {
+          color: #e46263;
+          &:hover {
+            color: #fa4243;
           }
         }
 
@@ -89,20 +113,10 @@ export const Container = styled.div`
           border: none;
           background: #e46263;
           transition: background 0.3s;
-
           &:hover {
             background: #fa4243;
           }
         }
-      }
-    }
-    h1 {
-      font-size: 30px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.9);
-
-      &.total {
-        color: rgba(255, 255, 255, 0.2);
       }
     }
   }
