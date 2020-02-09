@@ -2,13 +2,12 @@ import React, { Component } from "react";
 
 import { Container } from "../styles/styles";
 
-import Keyboard from "./Keyboard";
-
 import numbers from "../util/numbers";
 import isRomanValid from "../util/isRomanValid";
 import convertToInteger from "../util/convertToInteger";
 import convertToRoman from "../util/convertToRoman";
 
+import Keyboard from "./Keyboard";
 const symbols = ["+", "−", "×"];
 
 export default class Calculator extends Component {

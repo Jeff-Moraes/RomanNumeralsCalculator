@@ -11,7 +11,7 @@ export const Container = styled.div`
   border: 0;
 
   p {
-    color: #e46263;
+    color: #bb5252;
     font-weight: 400;
     padding-bottom: 5px;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
@@ -24,7 +24,7 @@ export const Container = styled.div`
       input {
         width: 100%;
         border: 0;
-        border-bottom: 0.5px solid #e46263;
+        border-bottom: 0.5px solid #bb5252;
         font-size: 14px;
         font-weight: 300;
         text-transform: uppercase;
@@ -37,7 +37,7 @@ export const Container = styled.div`
           text-transform: none;
         }
         &:hover {
-          border-bottom: 0.5px solid #fa4243;
+          border-bottom: 0.5px solid #c5464b;
         }
         &:focus {
           border-bottom: 0;
@@ -47,7 +47,7 @@ export const Container = styled.div`
       span {
         font-size: 24px;
         font-weight: 400;
-        color: #e46263;
+        color: #bb5252;
         margin: 0 5px;
       }
     }
@@ -93,6 +93,10 @@ export const Container = styled.div`
         font-size: 20px;
         font-weight: 300;
 
+        &:active {
+          box-shadow: 0px 0px 7px 2px rgba(255, 255, 255, 0.3);
+        }
+
         &[type="button"] {
           background: none;
           border: 0.5px solid rgba(255, 255, 255, 0.07);
@@ -103,18 +107,18 @@ export const Container = styled.div`
         }
 
         &[name="Clear"] {
-          color: #e46263;
+          color: #bb5252;
           &:hover {
-            color: #fa4243;
+            color: #c5464b;
           }
         }
 
         &[type="submit"] {
           border: none;
-          background: #e46263;
+          background: #bb5252;
           transition: background 0.3s;
           &:hover {
-            background: #fa4243;
+            background: #c5464b;
           }
         }
       }

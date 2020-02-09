@@ -6,6 +6,7 @@ export default function isRomanValid(romanArray, numbersObject) {
     .split("")
     .find((value, index, arr) => {
       if (!numbersObject[value]) {
+        console.log("not a number");
         validRoman = false;
       } else if (value === "V" || value === "L" || value === "D") {
         if (romanArray.indexOf(value) !== romanArray.lastIndexOf(value)) {
