@@ -9,7 +9,7 @@ const numbers = {
   },
   C: {
     value: 100,
-    before: ["I", "V", "X", "L", "C", "M"]
+    before: ["I", "V", "X", "L", "C", "D", "M"]
   },
   L: {
     value: 50,
